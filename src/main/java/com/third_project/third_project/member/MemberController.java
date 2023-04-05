@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
+
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -106,6 +107,4 @@ public class MemberController {
         MemberListResponseVO response = mService.getWeight(seq);
         return new ResponseEntity<>(response, response.getCode());
     }
-
-
 }

@@ -38,6 +38,7 @@ public class GameScoreController {
     if(keyword == null) keyword = "";
     model.addAttribute("result", adminGameScoreService.getAdminGameScoreList(keyword, pageable));
     model.addAttribute("keyword", keyword);
+    model.addAttribute("currentPage", pageable.getPageNumber());
     return "/game/list";
   }
   @GetMapping("/percent")

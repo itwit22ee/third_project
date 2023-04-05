@@ -142,7 +142,7 @@ public ScoreListViewResponseVO getListScore(Long memberNo){
   if(member.isEmpty()){
     ScoreListViewResponseVO response = ScoreListViewResponseVO.builder()
     .code(HttpStatus.NOT_FOUND)
-    .message(memberNo+"학생은 등록되지 않은 회원입니다.")
+    .message(memberNo+"학생의 기록이 존재하지 않습니다.")
     .status(true)
     .build();
     return response;

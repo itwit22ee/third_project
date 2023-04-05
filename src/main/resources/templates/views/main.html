@@ -11,7 +11,7 @@
     <header>
       <center>
         <a href=".">
-          <img src="https://www.urbanbrush.net/web/wp-content/uploads/edd/2018/05/web-20180530030449087616.png" width="150" height="200" alt="쿨피스">
+          <img src="http://192.168.0.79:8888/api/member/img/%EC%BF%A8%ED%94%BC%EC%8A%A41680656097581.png" width="150" height="200" alt="쿨피스">
         </a>
       </center>
     </header>
@@ -35,8 +35,9 @@
         <td>내용</td>
         <td>등록일</td>
         <td>회원번호</td>
-        <td>영상번호</td>
+        <td>영상</td>
         <td>운동타입</td>
+        <td>삭제</td>
       
         <tbody>
           <tr th:each="notice : ${result.list}">
@@ -45,8 +46,11 @@
           <td th:text="${notice.gnContent}"></td>
           <td th:text="${notice.gnRegDt}"></td>
           <td th:text="${notice.gnMiSeq}"></td>
-          <td th:text="${notice.gnEvSeq}"></td>
+          <td><a class="video" th:href=@{/notice/video(id=${notice.gnEvSeq})}>영상</a></td>
           <td th:text="${notice.gnEtSeq}"></td>
+          <td>
+            <a class="delete" th:href="@{/delete(notice_no=${notice.gnSeq})}">삭제</a>
+          </td>
         </tr>
         </tbody>
       </tr>
@@ -103,6 +107,10 @@
   font-weight: bold; text-align: center; font-weight: bold;}
   .link :hover{background-color: #666; color: #ff42e7;}
   .addpage{text-decoration: none; display: block; color: black; display: block; 
+  font-weight: bold; text-align: center; font-weight: bold;}
+  .delete{text-decoration: none; display: block; color: black; display: block; 
+  font-weight: bold; text-align: center; font-weight: bold;}
+  .video{text-decoration: none; display: block; color: black; display: block; 
   font-weight: bold; text-align: center; font-weight: bold;}
 </style>
 </html>

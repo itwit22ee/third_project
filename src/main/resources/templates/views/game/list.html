@@ -11,12 +11,11 @@
     <header>
       <center>
         <a href="/">
-          <img src="https://www.urbanbrush.net/web/wp-content/uploads/edd/2018/05/web-20180530030449087616.png" width="150" height="200" alt="쿨피스">
+          <img src="http://192.168.0.79:8888/api/member/img/%EC%BF%A8%ED%94%BC%EC%8A%A41680656097581.png" width="150" height="200" alt="쿨피스">
         </a>
       </center>
     </header>
   </section>
-
   <nav>
     <ul>
       <li>
@@ -29,6 +28,7 @@
     <h1>지난주 성적</h1>
     <thead>
       <tr>
+        <td>등수</td>
         <td>번호</td>
         <td>닉네임</td>
         <td>종목 번호</td>
@@ -39,18 +39,20 @@
       </tr>
     </thead>
     <thead>
-      <tr th:each="score : ${result.list}">
-        <td th:text="${score.gsSeq}"></td>
-        <td th:text="${score.miNickName}"></td>
-        <td> 
-        <a class="num" th:href="@{/percent(et_seq=${score.gsEtSeq},page=${result.currentPage},keyword=${keyword})}" th:text="${score.gsEtSeq}">
-        </a> 
-      </td>
-        <td th:text="${score.etName}"></td>
-        <td th:text="${score.gsRegDt}"></td>
-        <td th:text="${score.gsTime}"></td>
-        <td th:text="${score.percent}"></td>
-      </tr>
+      <tr th:each = "score, stat : ${result.list}">
+        <td th:text="${stat.count+10*currentPage}">
+        </td>
+            <td th:text="${score.gsSeq}"></td>
+            <td th:text="${score.miNickName}"></td>
+            <td> 
+              <a class="num" th:href="@{/percent(et_seq=${score.gsEtSeq},page=${result.currentPage},keyword=${keyword})}" th:text="${score.gsEtSeq}">
+              </a> 
+            </td>
+            <td th:text="${score.etName}"></td>
+            <td th:text="${score.gsRegDt}"></td>
+            <td th:text="${score.gsTime}"></td>
+            <td th:text="${score.percent}"></td>
+          </tr>
     </thead>
   </table>
   <div class="pager_area">

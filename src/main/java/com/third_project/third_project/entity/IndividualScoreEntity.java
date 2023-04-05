@@ -1,5 +1,6 @@
 package com.third_project.third_project.entity;
 
+import com.third_project.third_project.Detail.vo.IsSumScoreVO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,7 +25,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @Builder
 @DynamicInsert
 @Table(name="individual_score")
-public class IndividualScoreEntity {
+public class IndividualScoreEntity{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Schema(description = "개인 운동 seq")
     @Column(name="is_seq")     private Long isSeq;
@@ -37,6 +38,8 @@ public class IndividualScoreEntity {
     @JoinColumn(name ="is_mi_seq", insertable=false, updatable=false)  private MemberInfoEntity member;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name ="is_et_seq", insertable=false, updatable=false)  private ExTypeEntity exType;
+
+
 }
 
 

@@ -7,6 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,11 +37,20 @@ public class main {
   public String getNoticeAdd(){
     return "/add";
   }
-  @PostMapping("/admin/add")
+  @PostMapping("/add")
   public String postNotice(Model model, NotiiceAdminInsertVO data){
     Map<String,Object> map = noticeAdminService.addNotice(data);
     model.addAttribute("data", data);
     model.addAttribute("result", map);
-        return "/add";
+        return "redirect:/";
     }
+  @GetMapping("/delete")
+  public String deleteNotice (@RequestParam Long notice_no){
+    noticeAdminService.deleteNotice(notice_no);
+    return "redirect:/";
+  }
+  @GetMapping("/notice/video")
+  public String getVideo(){
+    return "/notice/video";
+  }
 }

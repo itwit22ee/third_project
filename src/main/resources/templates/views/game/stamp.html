@@ -11,7 +11,7 @@
     <header>
       <center>
         <a href="/">
-          <img src="https://www.urbanbrush.net/web/wp-content/uploads/edd/2018/05/web-20180530030449087616.png" width="150" height="200" alt="쿨피스">
+          <img src="http://192.168.0.79:8888/api/member/img/%EC%BF%A8%ED%94%BC%EC%8A%A41680656097581.png" width="150" height="200" alt="쿨피스">
         </a>
       </center>
     </header>
@@ -30,6 +30,9 @@
         </td>
       </tr>
     </table>
+    <div class="back">
+      <a class="num" th:href="@{/game(page=${page},keyword=${keyword})}">목록으로</a>
+    </div>
     <hr>
     <footer>
       <center>
@@ -40,6 +43,7 @@
   </form>
 </body>
 <style>
+  
     @font-face {
     font-family: 'IM_Hyemin-Bold';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
@@ -58,6 +62,9 @@ table{margin: auto;
       font-size: 25px;}
 
 footer{font-size: 35px; font-family: 'IM_Hyemin-Bold';}
-  .back{font-size: 30px;font-family: 'IM_Hyemin-Bold'; text-align: right;}
+  .back{text-align: right; text-decoration: none; display: block; color: black;
+    display: block; font-weight: bold; text-align: center; font-weight: bold;}
+  .num{text-decoration: none; display: block; color: black; display: block; font-weight: bold; text-align: center; font-weight: bold;}
+  
 </style>
 </html>

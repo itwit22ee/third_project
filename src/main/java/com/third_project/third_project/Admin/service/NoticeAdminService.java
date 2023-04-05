@@ -16,6 +16,7 @@ import com.third_project.third_project.Admin.vo.NotiiceAdminInsertVO;
 import com.third_project.third_project.entity.GameNoticeEntity;
 import com.third_project.third_project.repository.GameNoticeRepository;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -45,5 +46,9 @@ public class NoticeAdminService {
     .build();
     noticeAdminRepository.save(entity);
     return map;
+  }
+  @Transactional
+  public void deleteNotice(Long gnSeq){
+    noticeAdminRepository.deleteById(gnSeq);
   }
 }
